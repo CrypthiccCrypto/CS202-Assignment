@@ -40,8 +40,11 @@ public class SAT {
         }
 
         if (construct(1)) { // assuming literal 1 at the very beginning
+            System.out.print("[ ");
             for(int i = 1; i <= L; i++)
                 System.out.print((model[i] != 0 ? model[i] : i) + " ");
+            System.out.print("]");
+            System.out.println();
         } else { // if initial assumption fails, then no model and hence UNSAT
             System.out.println("UNSAT");
         }
@@ -54,7 +57,7 @@ public class SAT {
         double startTime = System.currentTimeMillis();
         run("testcases/"+URL);
         double endTime = System.currentTimeMillis();
-        System.err.println("Evaluation took: "+(endTime-startTime)+"ms");
+        System.out.println("Evaluation took: "+(endTime-startTime)+"ms");
         sc.close();
         // for(int i = 1; i <= 20; i++) {
         //     double startTime = System.currentTimeMillis();
